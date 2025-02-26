@@ -1,22 +1,21 @@
-import streamlit as st
 import requests
 import json
 
-def send_message_to_slack(message):
-    webhook_url = "https://hooks.slack.com/services/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"
-    payload = {"text": message}
-    headers = {'Content-Type': 'application/json'}
-    
-    response = requests.post(webhook_url, headers=headers, data=json.dumps(payload))
+#URL #https://hooks.slack.com/services/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
+webhook_url = "https://hooks.slack.com/services/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"
+
+def send_message():
+    message = {
+        "text": "Hola para todos"
+    }
+    headers = {
+        'Content-Type': 'application/json',
+    }
+    response = requests.post(webhook_url, headers=headers, data=json.dumps(message))
     
     if response.status_code == 200:
-        st.success("Mensaje enviado correctamente a Slack")
+        print("Mensaje enviado correctamente")
     else:
-        st.error(f"Error al enviar el mensaje: {response.status_code}, {response.text}")
+        print(f"Error al enviar el mensaje: {response.status_code}, {response.text}")
 
-# Interfaz de usuario con Streamlit
-st.title("Enviar mensaje a Slack")
-message = st.text_area("Escribe tu mensaje", "Hola para todos")
-
-if st.button("Enviar mensaje"):
-    send_message_to_slack(message)
+send_message()
