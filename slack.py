@@ -16,7 +16,7 @@ def send_message_to_slack(message):
 
 # Interfaz de usuario con Streamlit
 st.title("Enviar mensaje a Slack")
-message = st.text_area("Escribe tu mensaje", "Hola para todos")
+message = st.text_area("Escribe tu mensaje", "Hola para nadie")
 
 if st.button("Enviar mensaje"):
     send_message_to_slack(message)
