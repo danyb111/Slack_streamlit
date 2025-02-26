@@ -3,7 +3,7 @@ import requests
 import json
 
 def send_message_to_slack(message):
-    webhook_url = "https://hooks.slack.com/services/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"
+    webhook_url = "https://hooks.slack.com/services/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"
     payload = {"text": message}
     headers = {'Content-Type': 'application/json'}
     
